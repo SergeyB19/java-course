@@ -6,6 +6,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class Test2 {
+    public IdComparator idComparator;
+    public NameComparator nameComparator;
+    public SalaryComparator salaryComparator;
+
     public static void main(String[] args) {
         List<Employee> list = new ArrayList<>();
         Employee emp1 = new Employee(100, "Zaur", "Tregulov", 12345);
@@ -16,9 +20,12 @@ public class Test2 {
         list.add(emp2);
         list.add(emp3);
         System.out.println("Before sorting \n" + list);
-        Collections.sort(list);
-        System.out.println("After sorting \n" + list);
-        Collections.sort(list);
+        Collections.sort(list, new IdComparator());
+        System.out.println("After sorting IdComparator \n" + list);
+        System.out.println("After sorting NameComparator \n" + list);
+        Collections.sort(list, new NameComparator());
+        System.out.println("After sorting salaryComparator \n" + list);
+        Collections.sort(list, new SalaryComparator());
     }
 
 }
