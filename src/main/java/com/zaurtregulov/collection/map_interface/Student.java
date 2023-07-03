@@ -2,7 +2,7 @@ package com.zaurtregulov.collection.map_interface;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student> {
     String name;
     String surname;
     int course;
@@ -30,13 +30,18 @@ public class Student {
         return course == student.course && Objects.equals(name, student.name) && Objects.equals(surname, student.surname);
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(name, surname, course);
-//    }
-
     @Override
     public int hashCode() {
-        return name.length()*7 + surname.length()*11 + course*53;
+        return Objects.hash(name, surname, course);
     }
+
+    @Override
+    public int compareTo(Student o) {
+        return this.name.compareTo(o.name);
+    }
+
+//    @Override
+//    public int hashCode() {
+//        return name.length()*7 + surname.length()*11 + course*53;
+//    }
 }
