@@ -1,4 +1,4 @@
-package com.zaurtregulov.collection;
+package com.zaurtregulov.collection.list_interface;
 
 public class Employee implements Comparable<Employee> {
     private int id;

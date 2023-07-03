@@ -1,4 +1,4 @@
-package com.zaurtregulov.collection;
+package com.zaurtregulov.collection.list_interface;
 
 import java.util.ArrayList;
 import java.util.Iterator;
