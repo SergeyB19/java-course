@@ -12,6 +12,7 @@ public class HashTable {
         ht.put(9.3, st2);
         ht.put(5.8, st3);
         ht.put(6.0, st4);
+
         System.out.println("ht = " + ht);
     }
 }
