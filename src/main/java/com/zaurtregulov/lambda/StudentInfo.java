@@ -1,11 +1,12 @@
 package com.zaurtregulov.lambda;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class StudentInfo {
-void testStudents(ArrayList<Student> al,StudentChecks sc) {
+void testStudents(ArrayList<Student> al, Predicate<Student> pr) {
     for (Student s : al) {
-        if (sc.check(s)) {
+        if (pr.test(s)) {
             System.out.println(s);
         }
     }
