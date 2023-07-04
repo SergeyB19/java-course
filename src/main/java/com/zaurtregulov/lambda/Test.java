@@ -1,6 +1,8 @@
 package com.zaurtregulov.lambda;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Test {
     public static void main(String[] args) {
@@ -16,6 +18,15 @@ public class Test {
         students.add(st4);
         students.add(st5);
         StudentInfo info = new StudentInfo();
+//        Collections.sort(students, new Comparator<Student>() {
+//            @Override
+//            public int compare(Student s1, Student s2) {
+//                return s1.course-s2.course;
+//            }
+//        });
+        Collections.sort(students,(stud1,stud2) -> stud1.course-stud2.course);
+        System.out.println(students);
+//        int p = 3;
 //        info.testStudents(students, new CheckOverGrade());
 //        System.out.println("---------------------------");
 //        info.testStudents(students, new StudentChecks() {
@@ -24,9 +35,21 @@ public class Test {
 //                return student.age < 30;
 //            }
 //        });
-        info.testStudents(students, (Student s) -> {
-            return s.avgGrade > 8;
-        });
+        info.testStudents(students, (Student p) -> {return p.avgGrade > 8;});// 1 вариант
+        info.testStudents(students, p -> p.avgGrade > 8);// 2 вариант
+
+        info.testStudents(students, p -> {
+            System.out.println("hello");
+            return p.avgGrade > 8;
+        }); // 3 вариант
+
+        StudentChecks sc = (Student p) -> {
+            return p.avgGrade > 8;
+        };
+        info.testStudents(students,sc);
+
+
+
         System.out.println("---------------------------");
         info.testStudents(students, (Student s) -> {
             return s.age < 30;
