@@ -7,8 +7,6 @@ import java.util.stream.Stream;
 
 public class Test2 {
     public static void main(String[] args) {
-
-
         Student st1 = new Student("Ivan", 'm', 22, 3, 8.3);
         Student st2 = new Student("Nikolay", 'm', 28, 2, 6.4);
         Student st3 = new Student("Elena", 'f', 19, 1, 8.9);
@@ -27,6 +25,14 @@ public class Test2 {
                     return element;
                 }).filter(element -> element.getSex() == 'f').sorted((x, y) -> x.getAge() - y.getAge())
                 .forEach(element -> System.out.println(element));
+        System.out.println("--------------------------------------------------------------------------------------------");
+        Student first = students.stream().map(element -> {
+                    element.setName(element.getName().toUpperCase());
+                    return element;
+                }).filter(element -> element.getSex() == 'f').sorted((x, y) -> x.getAge() - y.getAge())
+                .findFirst().get();
+        System.out.println("first = " + first);
+
 
 //        students = students.stream().sorted((x,y)->
 //                x.getName().compareTo(y.getName())
