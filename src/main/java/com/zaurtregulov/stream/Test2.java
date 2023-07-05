@@ -21,10 +21,17 @@ public class Test2 {
         students.add(st4);
         students.add(st5);
 
-        students = students.stream().sorted((x,y)->
-                x.getName().compareTo(y.getName())
-        ).collect(Collectors.toList());
-        System.out.println("students = " + students);
+
+        students.stream().map(element -> {
+                    element.setName(element.getName().toUpperCase());
+                    return element;
+                }).filter(element -> element.getSex() == 'f').sorted((x, y) -> x.getAge() - y.getAge())
+                .forEach(element -> System.out.println(element));
+
+//        students = students.stream().sorted((x,y)->
+//                x.getName().compareTo(y.getName())
+//        ).collect(Collectors.toList());
+//        System.out.println("students = " + students);
 
 //       students = students.stream().filter(element
 //                -> element.getAge() > 22 && element.getAvgGrade() < 7.2)
