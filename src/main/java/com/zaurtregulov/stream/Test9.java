@@ -2,6 +2,7 @@ package com.zaurtregulov.stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Test9 {
     public static void main(String[] args) {
@@ -17,6 +18,25 @@ public class Test9 {
         students.add(st4);
         students.add(st5);
 
+      List<Integer> courses = students.stream()
+              .mapToInt(el -> el.getCourse())
+              .boxed()// int convert Integer
+              .collect(Collectors.toList());
+        System.out.println("courses = " + courses);
+
+        int sum = students.stream().mapToInt(el -> el.getCourse()).sum();
+        System.out.println("sum = " + sum);
+        System.out.println("--------------------------------------------------");
+        double average = students.stream().mapToInt(el -> el.getCourse()).average().getAsDouble();
+        System.out.println("average = " + average);
+
+        System.out.println("--------------------------------------------------");
+        int minCourse = students.stream().mapToInt(el -> el.getCourse()).min().getAsInt();
+        System.out.println("minCourse = " + minCourse);
+        int maxCourse = students.stream().mapToInt(el -> el.getCourse()).max().getAsInt();
+        System.out.println("maxCourse = " + maxCourse);
+
+        System.out.println("--------------------------------------------------");
         Student min = students.stream().min((x,y)->x.getAge()-y.getAge()).get();
         System.out.println("min = " + min);
 
