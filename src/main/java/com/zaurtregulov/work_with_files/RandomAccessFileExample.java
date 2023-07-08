@@ -4,7 +4,9 @@ package com.zaurtregulov.work_with_files;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class RandomAccessFile {
+public class RandomAccessFileExample {
+
+
     public static void main(String[] args) {
         try (java.io.RandomAccessFile file = new java.io.RandomAccessFile("test10.txt", "rw")
 
