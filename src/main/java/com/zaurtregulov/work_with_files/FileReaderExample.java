@@ -2,13 +2,15 @@ package com.zaurtregulov.work_with_files;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileReaderExample {
-    public static void main(String[] args) {
-        FileReader reader = null;
-        try {
-            reader = new FileReader("test2.txt");
+    public static void main(String[] args) throws IOException {
+//        FileReader reader = null;
+        try (FileReader reader = new FileReader("test2.txt");
+             FileWriter writer = new FileWriter("test2.txt",true);) {
+//            reader = new FileReader("test2.txt");
             int character;
             while ((character = reader.read()) != -1) {
                 System.out.print((char) character);
@@ -17,15 +19,13 @@ public class FileReaderExample {
             System.out.println("Done");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
-        finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        finally {
+//            try {
+//                reader.close();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
 }
