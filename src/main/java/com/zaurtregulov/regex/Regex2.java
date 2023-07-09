@@ -39,8 +39,33 @@ public class Regex2 {
 //        String s1 = "abcd abce abc5abcg6abch";
 //        Pattern pattern1 = Pattern.compile("\\W");
 
-        String s1 = "abcd!?abce====abc ++5abcg6abch";
-        Pattern pattern1 = Pattern.compile("\\w{4}");
+//        String s1 = "abcd!?abce====abc ++5abcg6abch";
+//        Pattern pattern1 = Pattern.compile("\\w{4}");
+
+//        String s1 = "abcd!?    abce====a    bc ++5abc   g6a bc  h";
+//        Pattern pattern1 = Pattern.compile("\\w\\s+\\w");
+
+//        String s1 = "abcd!?    abce====a    bc ++5abc   g6a bc  h!!!!!!!!!!!!!!!!!!!!!!!";
+//        Pattern pattern1 = Pattern.compile("\\D{2,6}");
+
+//        String s1 = "ABCABABВA";
+//        Pattern pattern1 = Pattern.compile("(AB){2,3}");
+
+//        String s1 = "DABCDABADABABABABD";
+//        Pattern pattern1 = Pattern.compile("D(AB){2,}");
+//
+//        String s1 = "DABCDABABDA";
+//        Pattern pattern1 = Pattern.compile("D(AB)*");
+
+//        String s1 = "abcd abce abc5abcg6abch";;
+//        Pattern pattern1 = Pattern.compile("\\Aabce");
+
+//        String s1 = "abcd abce abc5abcg6abch";;
+//        Pattern pattern1 = Pattern.compile("abce\\Z");
+
+        String s1 = "abcd abcd4 afc4ced7";
+        Pattern pattern1 = Pattern.compile("[abcd][efgh3-8]");
+
 
 
 
